@@ -1,0 +1,18 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.limited-text {
+  max-height: 2em; /* 2 * hauteur de ligne (par exemple, 16px * 2) */
+  overflow: hidden; /* Cache le texte qui dépasse la hauteur maximale */
+  text-overflow: ellipsis; /* Ajoute "..." à la fin du texte caché */
+  white-space: nowrap; /* Empêche le texte de sauter à la ligne */
+}
+
+.custom-img {
+  width: 100px; /* Ajustez la largeur souhaitée */
+  height: 300px; /* Ajustez la hauteur souhaitée */
+}
