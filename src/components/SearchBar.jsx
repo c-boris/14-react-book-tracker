@@ -35,40 +35,54 @@ const SearchBar = ({ onSearch, onFilterFavorites, onFilterRead }) => {
     }
   };
 
+  const handleReloadPage = () => {
+    window.location.reload();
+  };
+
   return (
-    <Navbar className="bg-body-tertiary justify-content-between">
-      <Form inline>
-        <InputGroup>
-          <InputGroup.Text id="basic-addon1">Search</InputGroup.Text>
-          <Form.Control
-            placeholder="by title..."
-            value={searchTerm}
-            onChange={(e) => handleInputChange('searchTerm', e.target.value)}
+    <Navbar className="bg-body-primary mt-4 mb-4">
+  <div className="d-flex flex-column ">
+    <InputGroup>
+      <InputGroup.Text id="basic-addon1">
+        <strong className="cursor-pointer" onClick={handleReloadPage}>Book Tracker</strong>
+      </InputGroup.Text>
+      <Form.Control
+        type="search"
+        placeholder="Search by title.."
+        value={searchTerm}
+        onChange={(e) => handleInputChange('searchTerm', e.target.value)}
+        onKeyPress={(e) => {
+          if (e.key === 'Enter') {
+        handleSearch();
+          }
+        }}
+      />
+    </InputGroup>
+    <Button variant="secondary" onClick={handleSearch} className="mt-3">Search</Button>
+    <Form inline className="mt-3">
+      <Row>
+        <Col xs="auto">
+          <Form.Check
+            type="checkbox"
+            label="Favorites"
+            checked={favoritesChecked}
+            onChange={() => handleCheckboxChange('favoritesChecked')}
           />
-        </InputGroup>
-      </Form>
-      <Button variant="primary" onClick={handleSearch}>Search</Button>
-      <Form inline>
-        <Row>
-          <Col xs="auto">
-            <Form.Check
-              type="checkbox"
-              label="Favorites"
-              checked={favoritesChecked}
-              onChange={() => handleCheckboxChange('favoritesChecked')}
-            />
-          </Col>
-          <Col xs="auto">
-            <Form.Check
-              type="checkbox"
-              label="Wish list"
-              checked={readChecked}
-              onChange={() => handleCheckboxChange('readChecked')}
-            />
-          </Col>
-        </Row>
-      </Form>
-    </Navbar>
+        </Col>
+        <Col xs="auto">
+          <Form.Check
+            type="checkbox"
+            label="Wish list"
+            checked={readChecked}
+            onChange={() => handleCheckboxChange('readChecked')}
+          />
+        </Col>
+      </Row>
+    </Form>
+  </div>
+</Navbar>
+
+
   );
 };
 

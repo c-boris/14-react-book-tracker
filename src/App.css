@@ -1,18 +1,19 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
 }
 
 .limited-text {
-  max-height: 2em; /* 2 * hauteur de ligne (par exemple, 16px * 2) */
-  overflow: hidden; /* Cache le texte qui dépasse la hauteur maximale */
-  text-overflow: ellipsis; /* Ajoute "..." à la fin du texte caché */
-  white-space: nowrap; /* Empêche le texte de sauter à la ligne */
+  max-height: 2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .custom-img {
-  width: 100px; /* Ajustez la largeur souhaitée */
-  height: 300px; /* Ajustez la hauteur souhaitée */
+  width: 300px;
+  height: 200px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

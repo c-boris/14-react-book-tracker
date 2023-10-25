@@ -88,11 +88,11 @@ const BookList = () => {
         onFilterFavorites={handleFilterFavorites}
         onFilterRead={handleFilterRead}
       />
-      <div className="row">
+      <div className="row ">
         {filteredBooks.map((book) => (
-          <div className="col-md-3" key={book.isbn}>
-            <div className="h-100 d-flex">
-              <Card style={{ width: '18rem' }}>
+          <div className="col-md-3 mb-4" key={book.isbn}>
+            <div className=" d-flex">
+              <Card style={{ width: '20rem' }}>
                 <Card.Img
                   variant="top"
                   src={book.thumbnailUrl || '/src/assets/javascript.png'}
@@ -111,6 +111,7 @@ const BookList = () => {
                     >
                       {book.isFav ? 'Remove from favorites' : 'Add to favorites'}
                     </button>
+                    <div className="mb-2"></div>
                     <button
                       className={`btn ${book.read ? 'btn-danger' : 'btn-success'}`}
                       onClick={() => toggleBookProperty(book.isbn, 'read')}
